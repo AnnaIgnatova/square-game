@@ -69,7 +69,7 @@ const win = () => {
   game.innerHTML = `
     <div class="win">
         <img src="./assets/win.png" alt="win" class="win-img"/>
-        <span class="win-text">You are win!</span>
+        <span class="win-text">You won!</span>
     </div>`;
   startBtn.classList.remove('hide');
   timer.classList.add('hide');
@@ -81,7 +81,7 @@ const lose = () => {
   game.innerHTML = `
     <div class="win">
         <img src="./assets/lose.png" alt="win" class="win-img"/>
-        <span class="win-text">You are lose!</span>
+        <span class="win-text">You lose!</span>
     </div>`;
   startBtn.classList.remove('hide');
   timer.classList.add('hide');
