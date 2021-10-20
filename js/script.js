@@ -44,12 +44,13 @@ const timerFunc = () => {
     if (currentTime === 0) {
       lose();
     }
-    if (!gameStatus) stopTimer();
-    timer.textContent = `00 : ${currentTime--}`;
+    timer.textContent = `00 : ${String(currentTime--).padStart(2, '0')}`;
   }, 1000);
 };
 
 const resetAll = () => {
+  stopTimer();
+  gameStatus = 0;
   squareNum = 2;
   squareSize = Math.floor((GAME_SIZE - squareNum * 5) / squareNum);
   step = 0.1;
@@ -73,7 +74,6 @@ const win = () => {
   startBtn.classList.remove('hide');
   timer.classList.add('hide');
   level.classList.add('hide');
-  gameStatus = 0;
 };
 
 const lose = () => {
@@ -86,7 +86,6 @@ const lose = () => {
   startBtn.classList.remove('hide');
   timer.classList.add('hide');
   level.classList.add('hide');
-  gameStatus = 0;
 };
 
 const changeLevel = () => {
@@ -155,6 +154,7 @@ startBtn.addEventListener('click', () => {
   playGame();
   startBtn.classList.add('hide');
   timer.classList.remove('hide');
+  timer.textContent = `00 : ${currentTime}`;
   level.classList.remove('hide');
   level.textContent = `level: ${countLevels}`;
 });
